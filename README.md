@@ -45,4 +45,7 @@ Adding a new API Provider:
        1. Headers
        2. outputted key parameters for temperature, wind speed, humidity, etc
        3. URLs & API keys
-  4. 
+  4. Lines 50-65 of main.py contain API provider objects based on their respective classes. You will need to replace any references to MeteoStat and WeatherAPI with your chosen provider.
+
+Obtaining Outputs:
+  1. Drift reports can be found in the file outputs/output.csv. 
