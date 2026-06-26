@@ -1,0 +1,7 @@
+CONFIGURATION:
+    I decided to split the configuration into two files, a .json and a .env.
+    The .env file contains api keys and URLs, which should only be edited by an engineer. They should remain secret;
+    splitting them from the location configuration allows us to gitignore them and keep them as secrets.
+
+    On the other hand, the .json file containing our locations is easily editable, can be touched by other apis for later scalability,
+    and does not require secreting.

@@ -1,0 +1,13 @@
+{
+  "location1": {
+    "code": "DTW",
+    "latitude": 42.2162,
+    "longitude": -83.2554
+  },
+  "location2": {
+    "code": "ATL",
+    "latitude": 33.6407,
+    "longitude": -84.4277
+  }
+}
+
