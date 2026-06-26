@@ -20,7 +20,7 @@ Install Instructions:
      Mac:
        a. In terminal (pathed to the project folder) run command python3 -m venv .venv
        b. Activate venv with source .venv/bin/activate
-  6. Install dependencies using commands pip install -r requirements.txt from the project folder
+  6. Install dependencies using command pip install -r requirements.txt from the project folder
   7. Run main program:
      Windows: run command python main.py
      Mac: run command python3 main.py
