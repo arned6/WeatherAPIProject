@@ -56,21 +56,21 @@ Obtaining Outputs:
 
 ## Design Decisions and Justifications
 
-# Class Control
+### Class Control
   The WeatherAPI, Meteostat and templates for our api providers were designed as individual classes with separate .py files for each. This was to allow for synchronous changes that would only affect individual API providers; additionally, this allowed for easier parallel processing using ThreadPoolExecutor. 
 
   the Provider Template was created with the variables required for altering made clear. This, combined with the .env file and the preexistence of the class for tempalting, should allow for the adding of a new API by only editing the Class variables, the api parameters required by the host, and the class call within the main file.
 
-# API Key and Variable Storage
+### API Key and Variable Storage
   A .env file was created to include variables for APIs that are not hardcoded into the source. This is best practice for programming with APIs. In a live environment with paid keys, our API variables would be hosted in secret (usually using AWS or gitignore) but I kept them available to the project for ease of transferring.
 
-# Location Storage and Configuration
+### Location Storage and Configuration
   All Locations are stored in a config.json file for ease of editing without requiring editing of the source code. Along with this, I decided to implement location validation and selection for the user; with this in mind, not only can the user add locations without touching the source code, the code will also dynamically pick them up, add them to an input list at the beginning of the application, and allow for selection. I included recursion on the airport selection functionn that will cause the program to loop until a valid selection is chosen.
 
-# Reporting
+### Reporting
   The code for the reporting output engine (Lines 13-48 of reportingengine.py) was created almost entirely by AI with adjustments by the engineer for proper dictionary calling and security validation. It is designed so that weather data from any API can be plugged into it, so long as that weather data contains the same parameters as what are called for in the comparison report.
 
-## Assumptions
+# Assumptions
 
 -APIs are stored in the .env file securely
 -User understands basic knowledge of CLI usage and knows how to install git, python, etc
