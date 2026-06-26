@@ -54,5 +54,44 @@ Adding a new API Provider:
 Obtaining Outputs:
   1. Drift reports can be found in the file outputs/output.csv. 
 
+## Design Decisions and Justifications
 
+# Class Control
+  The WeatherAPI, Meteostat and templates for our api providers were designed as individual classes with separate .py files for each. This was to allow for synchronous changes that would only affect individual API providers; additionally, this allowed for easier parallel processing using ThreadPoolExecutor. 
 
+  the Provider Template was created with the variables required for altering made clear. This, combined with the .env file and the preexistence of the class for tempalting, should allow for the adding of a new API by only editing the Class variables, the api parameters required by the host, and the class call within the main file.
+
+# API Key and Variable Storage
+  A .env file was created to include variables for APIs that are not hardcoded into the source. This is best practice for programming with APIs. In a live environment with paid keys, our API variables would be hosted in secret (usually using AWS or gitignore) but I kept them available to the project for ease of transferring.
+
+# Location Storage and Configuration
+  All Locations are stored in a config.json file for ease of editing without requiring editing of the source code. Along with this, I decided to implement location validation and selection for the user; with this in mind, not only can the user add locations without touching the source code, the code will also dynamically pick them up, add them to an input list at the beginning of the application, and allow for selection. I included recursion on the airport selection functionn that will cause the program to loop until a valid selection is chosen.
+
+# Reporting
+  The code for the reporting output engine (Lines 13-48 of reportingengine.py) was created almost entirely by AI with adjustments by the engineer for proper dictionary calling and security validation. It is designed so that weather data from any API can be plugged into it, so long as that weather data contains the same parameters as what are called for in the comparison report.
+
+## Assumptions
+
+-APIs are stored in the .env file securely
+-User understands basic knowledge of CLI usage and knows how to install git, python, etc
+-All APIs used by this program will require latitude, longitude and date. I built start and end date into the API paramaters by calling the date variable twice in case this is needed by a future API.
+-All data needs to be normalized to imperial standards
+-Date timestamps need to be normalized to YYYY-MM-DD
+-Only daily aggregations are used
+-Drift is calculated absolutely, not by percentage
+-Each provider responds using JSON and is REST based 
+
+## Future Improvements
+Given more time and a large scope, I would include the following improvements:
+ 1. Cloud storage of API keys for security
+ 2. GUI Interface, incuding:
+    1. The ability to add location via text boxes
+    2. Loading of the .csv report directly into the UI
+    3. Dropdown selection of Weather APIs as they are added
+ 3.Better exception handling & edge case prevention (for example, what happens if one provider fails to respond)
+ 4. Cloud storage of CSV data
+ 5. Coded rules for validation
+ 6. API integration for airport code lat/lon for ease of use
+ 7. logged API handling errors
+ 8. rate limiting warnings
+ 9. Dynamic drift report warnings based on affected data parameters
