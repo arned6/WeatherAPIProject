@@ -5,6 +5,7 @@ Prerequisites:
   1. Python 3.x
   2. pip (bundled with python 3.x)
   3. venv (bundled with python 3.x)
+  4. local git
 
 Install Instructions:
   1. Navigate in console to your Python Workspace
@@ -24,3 +25,9 @@ Install Instructions:
 
 Adding New Locations:
   1. Navigate to file config/config.json
+  2. Add a new location using the following json structure:
+   {"code":"XYZ,
+    "latitude":"12.4567",
+    "longitude":"123.456"   
+   }
+  3. Save and commit 
