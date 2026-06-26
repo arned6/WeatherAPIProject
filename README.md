@@ -70,7 +70,7 @@ Obtaining Outputs:
 ### Reporting
   The code for the reporting output engine (Lines 13-48 of reportingengine.py) was created almost entirely by AI with adjustments by the engineer for proper dictionary calling and security validation. It is designed so that weather data from any API can be plugged into it, so long as that weather data contains the same parameters as what are called for in the comparison report.
 
-# Assumptions
+## Assumptions
 
 -APIs are stored in the .env file securely
 -User understands basic knowledge of CLI usage and knows how to install git, python, etc
