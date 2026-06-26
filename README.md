@@ -13,7 +13,7 @@ Install Instructions:
   3. Path in terminal to your python project download for WeatherAPIProject (usually in root)
   4. Install .venv (not mandatory, but highly recommended to avoid packages being installed in global python environment)
      Windows:
-       a. In cmd (pathed to the project folder) run command python -m venv .venv
+       a. In cmd (pathed to the project folder) ~run command python -m venv .venv~
        b. Activate venv with .venv\Scripts\activate.bat
      Mac:
        a. In terminal (pathed to the project folder) run command python3 -m venv .venv
